@@ -1,7 +1,8 @@
-# Docs: https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically
+# Docs: https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot-version-update-file#groups
 
 version: 2
 updates:
+  # 1. GitHub Actions: Combine ALL action updates into a single PR
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
@@ -11,6 +12,12 @@ updates:
     commit-message:
       prefix: "chore"
       include: "scope"
+    groups:
+      actions-all:
+        patterns:
+          - "*"
+
+  # 2. NPM: Group non-breaking (minor/patch) updates together
   - package-ecosystem: "npm"
     directory: "/screenshot-wrapping"
     schedule:
@@ -20,6 +27,13 @@ updates:
     commit-message:
       prefix: "chore"
       include: "scope"
+    groups:
+      npm-minor-patch:
+        update-types:
+          - "patch"
+          - "minor"
+
+  # 3. Bundler (Android Fastlane): Group non-breaking updates
   - package-ecosystem: "bundler"
     directory: "fastlane/android"
     schedule:
@@ -29,6 +43,13 @@ updates:
     commit-message:
       prefix: "chore"
       include: "scope"
+    groups:
+      bundler-minor-patch:
+        update-types:
+          - "patch"
+          - "minor"
+
+  # 4. Bundler (iOS Fastlane): Group non-breaking updates
   - package-ecosystem: "bundler"
     directory: "fastlane/ios/fastlane"
     schedule:
@@ -38,3 +59,8 @@ updates:
     commit-message:
       prefix: "chore"
       include: "scope"
+    groups:
+      bundler-minor-patch:
+        update-types:
+          - "patch"
+          - "minor"
