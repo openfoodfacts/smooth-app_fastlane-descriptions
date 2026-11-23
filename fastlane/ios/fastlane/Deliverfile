@@ -1,5 +1,5 @@
 force true # To go into non interactive mode
-app_identifier "org.openfoodfacts.app"
+app_identifier "org.openfoodfacts.scanner"
 username ENV["FASTLANE_USER"] #ENV["APPLE_ID"]
 app_icon "./fastlane/ios/fastlane/metadata/Icon-App-iTunes.png"
 screenshots_path "./fastlane/ios/fastlane/screenshots"
