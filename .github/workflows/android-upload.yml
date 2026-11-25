@@ -21,7 +21,7 @@ jobs:
        env:
          API_JSON_FILE_DECRYPTKEY: ${{ secrets.API_JSON_FILE_DECRYPTKE }}
      - name: Setup Ruby
-       uses: ruby/setup-ruby@v1
+       uses: ruby/setup-ruby@v1.344.0
        with:
          bundler-cache: true
          ruby-version: 3.1

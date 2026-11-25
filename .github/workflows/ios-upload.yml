@@ -19,7 +19,7 @@ jobs:
         run: echo ${{ env.RELEASE_VERSION }}
 
       - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@v1.344.0
         with:
           bundler-cache: true
           ruby-version: 3.1
