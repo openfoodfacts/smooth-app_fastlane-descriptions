@@ -16,7 +16,7 @@ jobs:
      - name: Checkout
        uses: actions/checkout@v7.0.1
      - name: Validate Android metadata
-       uses: ashutoshgngwr/validate-fastlane-supply-metadata@v2
+       uses: ashutoshgngwr/validate-fastlane-supply-metadata@v2.1.0
        with:
          fastlaneDir: ./fastlane/android/metadata # optional. default is './fastlane'.
          #enable check to validate if a locale is supported by the Play Store Listing.
